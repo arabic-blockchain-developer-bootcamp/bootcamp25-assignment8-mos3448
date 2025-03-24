@@ -13,7 +13,7 @@ contract Assignment8 is ERC721URIStorage {
     
     } 
     uint256 private_tokenIdCounter;
-    address private myowner;
+    address public myowner;
 
     uint256 private_newtokenId;
  
@@ -31,10 +31,10 @@ contract Assignment8 is ERC721URIStorage {
 
     function mintNFT(string memory jsonuri ) external {
         // call _mint to mint a new nft to the function caller
-         require(msg.sender==myowner,"only owner called only");
+       
       uint256  _tokenIdCount = 1;
     uint256 newtokenId=_tokenIdCount;
-    
+      require(msg.sender==myowner);
         _mint(msg.sender,newtokenId);
         
         _setTokenURI( newtokenId,jsonuri);
